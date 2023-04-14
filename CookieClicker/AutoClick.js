@@ -102,7 +102,7 @@ AutoClick.launch = function() {
 				  document.getElementById('bigCookie').click();
 				} catch (err) {
 				  console.error('Stopping auto clicker');
-				  clearInterval(autoclicker);
+				  clearInterval(AutoClick.autoClicker);
 				}
 			  }, 1000 / AutoClick.prefs.autoClickSpeed);
 		}
