@@ -62,7 +62,7 @@ AutoClick.launch = function() {
 		const title = "Auto Click";
 	
 		let str = "<div class='listing'>" +
-			m.ToggleButton(AutoClick.config, "autoClickToggle", "Auto Click ON", "Auto Click OFF", "AutoClick.Toggle") +
+			m.ToggleButton(AutoClick.config, "autoClickToggle", "autoClickToggleButton", "Auto Click ON", "Auto Click OFF", "AutoClick.Toggle") +
 			"</div><br/>";
 		str += "<div class='listing'>" +
 			m.Slider("autoClickSlider", "Auto Click Speed", "[$] Clicks/Second",  function(){return AutoClick.config.autoClickSpeed;},
