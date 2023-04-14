@@ -83,7 +83,10 @@ AutoClick.launch = function() {
 			l(button).innerHTML = on;
 			AutoClick.config[prefName] = 1;
 		}
-		l(button).className = 'smallFancyButton prefButton option' + ((AutoClick.config[prefName] ^ invert) ? '' : ' off');	
+		l(button).className = 'smallFancyButton prefButton option' + ((AutoClick.config[prefName] ^ invert) ? '' : ' off');
+		if(prefName == "autoClickToggle") {
+			AutoClick.updateAutoClick();
+		}
 	}
 
 
