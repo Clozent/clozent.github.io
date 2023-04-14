@@ -123,7 +123,9 @@ AutoClick.launch = function() {
 		}
 	}
 
-	if(CCSE.ConfirmGameVersion(AutoClick.name, AutoClick.version, AutoClick.gameVersion)) Game.registerMod(AutoClick.name, AutoClick);
+	if(CCSE.ConfirmGameVersion(AutoClick.name, AutoClick.version, AutoClick.gameVersion)) {
+		Game.registerMod(AutoClick.name, AutoClick);
+	}
 }
 
 if(!AutoClick.isLoaded){
