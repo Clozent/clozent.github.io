@@ -65,7 +65,7 @@ AutoClick.launch = function() {
 			m.ToggleButton(AutoClick.config, "autoClickToggle", "Auto Click ON", "Auto Click OFF", "AutoClick.Toggle") +
 			"</div><br/>";
 		str += "<div class='listing'>" +
-			m.Slider("autoClickSlider", "Auto Click Speed", "[$] Clicks/Second", AutoClick.config.autoClickSpeed,
+			m.Slider("autoClickSlider", "Auto Click Speed", "[$] Clicks/Second",  function(){return AutoClick.config.autoClickSpeed;},
 				"autoclick.updatePref('autoClickSpeed', Math.round(l('autoClickSlider').value));" +
 				"l('autoClickSliderRightText').innerHTML = AutoClick.config.autoClickSpeed;",
 				0, 100, 1) +
