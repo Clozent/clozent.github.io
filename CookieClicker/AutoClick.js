@@ -38,6 +38,8 @@ AutoClick.launch = function() {
 			}
 		}
 		
+		AutoClick.updateAutoClick();
+		
 		if (Game.prefs.popups) Game.Popup('Auto Click loaded!');
 		else Game.Notify('Auto Click loaded!', '', '', 1, 1);
 	}
