@@ -132,7 +132,7 @@ AutoClick.launch = function() {
 
 if(!AutoClick.isLoaded){
 	if(CCSE && CCSE.isLoaded){
-		MyMod.launch();
+		AutoClick.launch();
 	}
 	else{
 		if(!CCSE) var CCSE = {};
