@@ -13,8 +13,16 @@ AutoClick.launch = function() {
 		AutoClick.backup = {};
 		AutoClick.config = {};
 
-		AutoClick.config = AutoClick.defaultConfig;
-		if (CCSE.config.OtherMods.AutoClick && !Game.modSaveData[AutoClick.name]) Game.modSaveData[AutoClick.name] = JSON.stringify(CCSE.config.OtherMods.AutoClick);
+		AutoClick.config = AutoClick.defaultConfig();
+		if (CCSE.config.OtherMods.AutoClick && !Game.modSaveData[AutoClick.name]) {
+			Game.modSaveData[AutoClick.name] = JSON.stringify(CCSE.config.OtherMods.AutoClick);
+		}
+		else if (!Game.modSaveData[AutoClick.name]) {
+			Game.modSaveData[AutoClick.name] = JSON.stringify(AutoClick.config);
+		}
+		else {
+			AutoClick.config = JSON.parse(Game.modSaveData[AutoClick.name]);
+		}
 		
 		Game.customOptionsMenu.push(function(){
 			CCSE.AppendCollapsibleOptionsMenu(AutoClick.name, AutoClick.getOptionsString());
@@ -54,6 +62,7 @@ AutoClick.launch = function() {
 	
 	AutoClick.updatePref = function(prefName, value){
 		AutoClick.config[prefName] = value;
+		Game.modSaveData[AutoClick.name] = AutoClick;
 		AutoClick.updateAutoClick();
 	}
 
@@ -77,15 +86,15 @@ AutoClick.launch = function() {
 	AutoClick.Toggle = function (prefName, button, on, off, invert) {
 		if(AutoClick.config[prefName]){
 			l(button).innerHTML = off;
-			AutoClick.config[prefName] = 0;
+			updatePref(prefName, 0); //AutoClick.config[prefName] = 0;
 		}
 		else{
 			l(button).innerHTML = on;
-			AutoClick.config[prefName] = 1;
+			updatePref(prefName, 1); //AutoClick.config[prefName] = 1;
 		}
 		l(button).className = 'smallFancyButton prefButton option' + ((AutoClick.config[prefName] ^ invert) ? '' : ' off');
-		if(prefName == "autoClickToggle") {
-			AutoClick.updateAutoClick();
+		/*if(prefName == "autoClickToggle") {
+			AutoClick.updateAutoClick();*/
 		}
 	}
 
