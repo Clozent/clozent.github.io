@@ -95,7 +95,7 @@ AutoClick.launch = function() {
 	
 	AutoClick.updateAutoClick = function() {
 		clearInterval(AutoClick.autoClicker);
-		if (AutoClick.prefs.autoClickToggle) {
+		if (AutoClick.config.autoClickToggle) {
 			AutoClick.autoClicker = setInterval(function(){
 				try {
 				  Game.lastClick -= 1000;
@@ -104,9 +104,9 @@ AutoClick.launch = function() {
 				  console.error('Stopping auto clicker');
 				  clearInterval(AutoClick.autoClicker);
 				}
-			  }, 1000 / AutoClick.prefs.autoClickSpeed);
+			  }, 1000 / AutoClick.config.autoClickSpeed);
 		}
-		else if (!AutoClick.prefs.autoClickToggle) {
+		else if (!AutoClick.config.autoClickToggle) {
 			// Leaving this here, just in case.
 		}
 	}
